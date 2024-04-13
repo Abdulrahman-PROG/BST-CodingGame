@@ -1,7 +1,7 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
+#include <bits/stdc++.h>
+#define e "\n"
+#define ll long long
+#define FAST ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0)
 using namespace std;
 
 struct Node {
@@ -66,24 +66,25 @@ public:
         for (int i = 1; i <= n; ++i) {
             root = insert(root, i, (width - 1) / 2, 0);
             if (root == nullptr) {
-                cout << "Lost,,,Bomb hit or out of bounds" << "\n";
+                cout << "Lost,,,Bomb hit or out of bounds" << e;
                 return;
             }
             if (goals.empty()) {
-                cout << "Won,,,All goals reached" << "\n";
+                cout << "Won,,,All goals reached" << e;
                 return;
             }
         }
         if (!checkGoals(root, (width - 1) / 2, 0)) {
-            cout << "Lost,,,Not all goals reached" << "\n";
+            cout << "Lost,,,Not all goals reached" << e;
         }
         else {
-            cout << "Won,,,All goals reached" << "\n";
+            cout << "Won,,,All goals reached" << e;
         }
     }
 };
 
 int main() {
+    FAST;
     int width, height, n, bombsCount, goalsCount;
     cin >> width >> height >> n >> bombsCount >> goalsCount;
     vector<pair<int, int>> bombs(bombsCount), goals(goalsCount);
