@@ -52,7 +52,7 @@ private:
         if (node == nullptr) return true;
         for (auto& goal : goals) {
             if (goal.first == x && goal.second == y) {
-                goals.erase(std::remove(goals.begin(), goals.end(), goal), goals.end());
+                goals.erase(remove(goals.begin(), goals.end(), goal), goals.end());
             }
         }
         return checkGoals(node->left, x - 1, y + 1) && checkGoals(node->right, x + 1, y + 1);
